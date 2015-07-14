@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlTopContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light">
+
+        <TextView
+            android:id="@+id/tvTopLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_light"
+            android:text="@string/tv_top_left" />
+
+        <TextView
+            android:id="@+id/tvBelow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTopLeft"
+            android:layout_toRightOf="@+id/tvTopLeft"
+            android:background="@android:color/holo_blue_dark"
+            android:text="@string/tv_below" />
+
+        <Button
+            android:id="@+id/btnTopRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/holo_orange_light"
+            android:text="@string/btn_top_right" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvBelowRL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_light"
+        android:text="@string/tv_below_rl" />
+
+
+</LinearLayout>
