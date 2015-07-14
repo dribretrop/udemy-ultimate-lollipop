@@ -4,14 +4,25 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class MainActivity extends Activity {
 
+    private Button buttonLeft;
+    private Button buttonRight;
+    private ButtonLeftOnClickListener buttonLeftListen;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_part_1);
+        setContentView(R.layout.layout_part_2);
+        buttonLeftListen = new ButtonLeftOnClickListener();
+
+
     }
 
     @Override
@@ -35,4 +46,18 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private class ButtonLeftOnClickListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            buttonLeft = (Button) findViewById(R.id.btnLeft);
+            buttonLeft.setText("");
+            buttonRight = (Button) findViewById(R.id.btnRight);
+            buttonRight.setText("Click Me");
+
+        }
+    }
+
+
 }
