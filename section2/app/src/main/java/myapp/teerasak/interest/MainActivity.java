@@ -12,15 +12,19 @@ public class MainActivity extends Activity {
 
     private Button buttonLeft;
     private Button buttonRight;
-    private ButtonLeftOnClickListener buttonLeftListen;
-
+    private ButtonOnClickListener buttonListen;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_part_2);
-        buttonLeftListen = new ButtonLeftOnClickListener();
+
+        buttonLeft = (Button) findViewById(R.id.btnLeft);
+        buttonRight = (Button) findViewById(R.id.btnRight);
+        buttonListen = new ButtonOnClickListener();
+        buttonLeft.setOnClickListener(buttonListen);
+        buttonRight.setOnClickListener(buttonListen);
 
 
     }
@@ -47,14 +51,17 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class ButtonLeftOnClickListener implements View.OnClickListener {
+    private class ButtonOnClickListener implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {
-            buttonLeft = (Button) findViewById(R.id.btnLeft);
-            buttonLeft.setText("");
-            buttonRight = (Button) findViewById(R.id.btnRight);
-            buttonRight.setText("Click Me");
+            if (view.getId() == R.id.btnLeft) {
+                buttonLeft.setText("");
+                buttonRight.setText("Click me");
+            } else if (view.getId() == R.id.btnRight) {
+                buttonLeft.setText("Click me");
+                buttonRight.setText("");
+            }
 
         }
     }
