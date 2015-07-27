@@ -1,19 +1,19 @@
 package myapp.teerasak.interest;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
-
-    private Button buttonLeft;
-    private Button buttonRight;
-    private ButtonOnClickListener buttonListen;
-
+    protected Button buttonLeft;
+    protected Button buttonRight;
+    protected ButtonListener btnListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +22,36 @@ public class MainActivity extends Activity {
 
         buttonLeft = (Button) findViewById(R.id.btnLeft);
         buttonRight = (Button) findViewById(R.id.btnRight);
-        buttonListen = new ButtonOnClickListener();
-        buttonLeft.setOnClickListener(buttonListen);
-        buttonRight.setOnClickListener(buttonListen);
+        btnListener = new ButtonListener();
+        buttonLeft.setOnClickListener(btnListener);
+        buttonRight.setOnClickListener(btnListener);
 
+    } //onCreate
 
-    }
+    private class ButtonListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            if (v.getId() == R.id.btnLeft) {
+                if(buttonLeft.getText() != "") {
+                    buttonLeft.setText("");
+                    buttonRight.setText("Click Me");
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please Click Right", Toast.LENGTH_SHORT).show();
+                }
+
+            } else if (v.getId() == R.id.btnRight) {
+                if (buttonRight.getText() != "") {
+                    buttonLeft.setText("Click Me");
+                    buttonRight.setText("");
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please click Left", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+        }
+    } // ButtonListener Class
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -51,20 +75,6 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class ButtonOnClickListener implements View.OnClickListener {
-
-        @Override
-        public void onClick(View view) {
-            if (view.getId() == R.id.btnLeft) {
-                buttonLeft.setText("");
-                buttonRight.setText("Click me");
-            } else if (view.getId() == R.id.btnRight) {
-                buttonLeft.setText("Click me");
-                buttonRight.setText("");
-            }
-
-        }
-    }
 
 
 }
