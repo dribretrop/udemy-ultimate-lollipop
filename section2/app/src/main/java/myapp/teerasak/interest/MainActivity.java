@@ -1,7 +1,6 @@
 package myapp.teerasak.interest;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,26 +9,26 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
+
 public class MainActivity extends Activity {
-    protected Button buttonLeft;
-    protected Button buttonRight;
-    protected ButtonListener btnListener;
+    private Button buttonLeft;
+    private Button buttonRight;
+    private ButtonListener btnListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_part_2);
+        setContentView(R.layout.layout_part_3);
 
         buttonLeft = (Button) findViewById(R.id.btnLeft);
         buttonRight = (Button) findViewById(R.id.btnRight);
         btnListener = new ButtonListener();
-        buttonLeft.setOnClickListener(btnListener);
-        buttonRight.setOnClickListener(btnListener);
+        //     buttonLeft.setOnClickListener(btnListener);
+        //     buttonRight.setOnClickListener(btnListener);
 
     } //onCreate
 
     private class ButtonListener implements View.OnClickListener{
-
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.btnLeft) {
@@ -37,7 +36,7 @@ public class MainActivity extends Activity {
                     buttonLeft.setText("");
                     buttonRight.setText("Click Me");
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please Click Right", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please Click Right ", Toast.LENGTH_SHORT).show();
                 }
 
             } else if (v.getId() == R.id.btnRight) {
@@ -45,13 +44,13 @@ public class MainActivity extends Activity {
                     buttonLeft.setText("Click Me");
                     buttonRight.setText("");
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please click Left", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please click Left ", Toast.LENGTH_SHORT).show();
                 }
 
             }
 
         }
-    } // ButtonListener Class
+    } // ButtonListener Class */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
