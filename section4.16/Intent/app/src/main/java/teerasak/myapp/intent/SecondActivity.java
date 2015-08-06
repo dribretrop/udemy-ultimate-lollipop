@@ -1,9 +1,12 @@
 package teerasak.myapp.intent;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class SecondActivity extends Activity {
 
@@ -11,6 +14,10 @@ public class SecondActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        String bundleString = getIntent().getExtras().getString(Intent.EXTRA_TEXT);
+        Toast.makeText(getApplicationContext(), bundleString, Toast.LENGTH_LONG).show();
+        Log.d("SecondActivity", " Receives from FirstActivity");
     }
 
     @Override

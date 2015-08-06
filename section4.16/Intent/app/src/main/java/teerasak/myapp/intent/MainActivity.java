@@ -1,7 +1,9 @@
 package teerasak.myapp.intent;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -11,6 +13,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent secondIntent = new Intent(this, SecondActivity.class);
+        secondIntent.putExtra(Intent.EXTRA_TEXT, "This text from firstActivity.");
+        startActivity(secondIntent);
+        Log.d("FirstActivity", " Intent to SecondActivity");
     }
 
     @Override
