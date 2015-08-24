@@ -7,21 +7,39 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class FirstActivity extends Activity {
+
+    private EditText etMessage;
+    // private static final String EXTRA_MSG_KEY = "EXTRA_MSG_KEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
+        etMessage = (EditText) findViewById(R.id.etMessage);
+
     }   // onCreate()
 
     public void onClickIntentToActivity(View view) {
-        Intent intentToSecond = new Intent(this, SecondActivity.class);
-        intentToSecond.putExtra(Intent.EXTRA_TEXT, "Text from FirstActivity");
-        startActivity(intentToSecond);
-        Log.d("FirstActivity ", "onClickIntentToActivity");
+
+        String check_etMessage = etMessage.getText().toString();
+
+        //    if (etMessage.getText().toString() == null)  // NOT WORKING
+        // {
+        if (check_etMessage.matches("")) {
+            Toast.makeText(getApplicationContext(), "Please Fill in Form", Toast.LENGTH_SHORT).show();
+            Log.e("FirstActivity", "onClickIntentToActivity Null Value");
+        } else {
+            Intent intentToSecond = new Intent(FirstActivity.this, SecondActivity.class);
+            intentToSecond.putExtra(Intent.EXTRA_TEXT, etMessage.getText().toString());
+            startActivity(intentToSecond);
+            Log.d("FirstActivity ", "onClickIntentToActivity");
+        }
+
     }   // onClickIntentToActivity
 
     @Override

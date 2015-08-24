@@ -16,6 +16,20 @@
         android:id="@+id/tv_firstActivity"
         android:textSize="20dp" />
 
+    <TextView
+        android:text="Your Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_name"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/etMessage"
+        android:maxLength="15" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

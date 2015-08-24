@@ -23,7 +23,7 @@ public class SecondActivity extends Activity {
 
 
         btnSecondActivity = (Button) findViewById(R.id.btn_secondActivity);
-        ;
+
         btnSecondActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +37,7 @@ public class SecondActivity extends Activity {
 
     private void getExtra() {
         String getExtra = getIntent().getExtras().getString(Intent.EXTRA_TEXT);
-        Toast.makeText(getApplicationContext(), getExtra, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Hi !" + getExtra, Toast.LENGTH_SHORT).show();
         Log.d("SecondActivity ", "Show Toast from FirstActivity");
     }
 
