@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_object_solar_system">
+        <item>Sun</item>
+        <item>Mercury</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Cares</item>
+        <item>Ganymede</item>
+        <item>Callisto</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+        <item>Centaurs</item>
+        <item>Pluto</item>
+    </string-array>
+</resources>
